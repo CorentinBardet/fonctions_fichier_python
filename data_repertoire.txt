@@ -1,0 +1,1 @@
+[{"nom": "marcel", "telephone": "0678985412", "adresse": "45 rue des peupliers"}, {"nom": "jean ", "telephone": "0654646761", "adresse": "78 place des choux"}]

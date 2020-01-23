@@ -1,46 +1,30 @@
-import repertoire_utils_dict as repertoire_utils
-
-repertoire = []
-
-def action_ajout_du_contact(repertoire, nom, numero, adresse):
-    repertoire.append({"nom": nom, "numero": numero, "adresse": adresse})
-
-def action_supression_du_contact(repertoire, nom_supprimer):
-    for contact in repertoire:
-        if contact["nom"] == nom_supprimer:
-            repertoire.remove(contact)
-
-def action_recherche_du_contact(repertoire, nom):
-    results =[]
-    for contact in repertoire:
-        if contact["nom"] == nom:
-            results.append(contact)
-    return results
+import repertoire_utils_text as repertoire_utils
 
 
-
-#Spécifications clients :
+# Specification client:
 
 def get_rep():
-    repertoire_utils.get_rep()
+    return repertoire_utils.get_rep()
+
 
 def ajouter_personne(repertoire, nom=None, telephone=None, adresse=None):
-    personne= {"nom": nom, "telephone": telephone, "adresse": adresse}
+    personne = {"nom": nom, "telephone": telephone, "adresse": adresse}
     repertoire_utils.append_rep(repertoire, personne)
     return repertoire
+
 
 def supprimer_personne(repertoire, nom):
     repertoire_utils.del_rep(repertoire, nom)
     return repertoire
 
+
 def chercher_personnes(repertoire, nom=None, telephone=None, adresse=None):
     results = []
     for contact in repertoire:
-        if contact["nom"] == nom:
-            results.append(contact)
-        if contact["telephone"] == telephone:
-            results.append(contact)
-        if contact["adresse"] == adresse:
+        if contact["nom"] == nom or contact["telephone"] == telephone or contact["adresse"] == adresse:
             results.append(contact)
     return results
 
+
+def lister_tous_les_contacts(repertoire):
+    return repertoire_utils.lister_tous_les_contacts(repertoire)
